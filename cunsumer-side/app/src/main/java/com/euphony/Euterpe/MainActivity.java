@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        Toast.makeText(MainActivity.this, "Touch", Toast.LENGTH_SHORT).show();
+
                         if (ContextCompat.checkSelfPermission(mContext,
                                 Manifest.permission.RECORD_AUDIO)
                                 != PackageManager.PERMISSION_GRANTED) {
@@ -79,10 +79,12 @@ public class MainActivity extends AppCompatActivity {
                             if(mode) {
                                 mRxManager.finish();
                                 listenView2.setText("멈춤");
+                                Toast.makeText(MainActivity.this, "멈춤", Toast.LENGTH_SHORT).show();
                                 mode = false;
                             } else {
                                 mRxManager.listen();  //Listening Start
                                 listenView2.setText("음파신호를 듣는 중입니다.. ");
+                                Toast.makeText(MainActivity.this, "음파신호 수신중", Toast.LENGTH_SHORT).show();
                                 mode = true;
                             }
                         }
@@ -125,22 +127,7 @@ public class MainActivity extends AppCompatActivity {
             // Permission has already been granted
         }
     }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_RECORD_AUDIO:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Snackbar.make(MainView, R.string.recorder_permission_granted,
-                                    Snackbar.LENGTH_SHORT)
-                            .show();
-                } else {
-                    Snackbar.make(MainView, R.string.recorder_permission_rejected,
-                                    Snackbar.LENGTH_SHORT)
-                            .show();
-                }
-        }
-    }
 
 }
 

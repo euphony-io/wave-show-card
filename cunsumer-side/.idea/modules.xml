@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/WaveShowCard-user.iml" filepath="$PROJECT_DIR$/.idea/modules/WaveShowCard-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/WaveShowCard-user.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/euphony/WaveShowCard-user.euphony.iml" filepath="$PROJECT_DIR$/.idea/modules/euphony/WaveShowCard-user.euphony.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/module/WaveShowCard-user.module.iml" filepath="$PROJECT_DIR$/.idea/modules/module/WaveShowCard-user.module.iml" />
+    </modules>
+  </component>
+</project>
