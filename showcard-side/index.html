@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
+    <title>wave-show-card</title>
+    <link rel="stylesheet" href="style.css">
     <head>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title> Euphony for ES6 demo </title>
+        <title> wave-show-card </title>
         <script type='module'>
             import { Euphony } from "https://cdn.jsdelivr.net/gh/euphony-io/euphony.js/dist/euphony.m.min.js";
             var euphy = new Euphony();
             var btnSwt = false;
 
+            var price = "9900";
+            var product = "MANGO";
+            // document.getElementById("price").innerHTML=price;
+            // document.getElementById("product").innerHTML=product;
+
+            var content = price + " " + product;
+            document.getElementById("wave_btn").value = content;
+
             window.generateSoundData = function () {
                 if (btnSwt) {
                     euphy.stop();
-                    document.getElementById("euphy_btn").value = "broadcast";
+                    document.getElementById("wave_btn").value = content;
                     btnSwt = false;
                     console.log("STOP!");
                 }
                 else {
-                    var code = document.getElementById("euphy_text");
-                    euphy.setCode(code.value);
+                    euphy.setCode(content);
                     euphy.play();
-                    document.getElementById("euphy_btn").value = "stop";
+                    document.getElementById("wave_btn").value = content;
                     btnSwt = true;
                     console.log("PLAY!");
                 }
@@ -34,15 +43,14 @@
     </head>
     <body>
         <center>
-            <h1>
-                Hi, this is the Euphony's ES6 demo project.
-            </h1>
+            <h1 class="title"> wave-show-card project </h1>
             <p>
-                <input id='euphy_text' class='demo_text_edit' type='text' value='hello, euphony' /> 
-                <input id='euphy_btn' class='demo_btn' type='button' value='broadcast' onclick='generateSoundData()' />
+                <input id='wave_btn' class='wave_btn' type='button' onclick='generateSoundData()' />
+                <!-- <p id='price' class='price'></p>
+                <p id='product' class='product'><p> -->
             </p>
-            <div id='desc'>
-                <strong>Description</strong><br />
+            <div class='desc'>
+                <strong>시각 장애인을 위한 음파 송신 웹 쇼카드입니다. 음파 수신 앱으로 웹 쇼카드의 내용을 수신하고 내용을 들을 수 있습니다.</strong><br />
             </div>
         </center>
     </body>
