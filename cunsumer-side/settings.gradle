@@ -1,0 +1,9 @@
+
+
+rootProject.name = "WaveShowCard-user"
+include ':app',':module',':euphony'
+gradle.ext.language = "java"
+
+
+
+
