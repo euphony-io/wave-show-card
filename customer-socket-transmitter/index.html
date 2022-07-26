@@ -32,21 +32,42 @@
   <body>
     <p id="server-time"></p>
     <div id="customerSide">
-      <form id="customerTransmitter">
-        <input
-          class="customerTransmitter_name"
-          type="text"
-          placeholder="Type product name"
-          required
-        />
-        <input
-          class="customerTransmitter_price"
-          type="number"
-          placeholder="Type product price"
-          required
-        />
-        <button>발신하기</button>
-      </form>
+      <div style="display: flex; justify-content: center">
+        <form
+          id="customerTransmitter"
+          style="display: flex; flex-direction: column"
+        >
+          <div>제품명</div>
+          <input
+            class="customerTransmitter_name"
+            type="text"
+            placeholder="Type product name"
+            style="width: 100%"
+            required
+          />
+          <div>제품 가격</div>
+          <div style="display: flex; position: relative">
+            <input
+              class="customerTransmitter_price"
+              type="number"
+              placeholder="Type product price"
+              style="width: 100%"
+              required
+            />
+            <div
+              style="
+                position: absolute;
+                color: black;
+                right: 10px;
+                margin-top: 4px;
+              "
+            >
+              원
+            </div>
+          </div>
+          <button>발신하기</button>
+        </form>
+      </div>
     </div>
     <div id="showcardSide">
       <center>
@@ -70,8 +91,16 @@
       </center>
     </div>
     <div id="btnContainer">
-      <button class="customerSide_btn">Customer Side</button>
-      <button class="showcardSide_btn">Showcard Side</button>
+      <div style="width: 100%; display: flex; justify-content: center">
+        <div>
+          <div>
+            <button class="customerSide_btn">Customer Side</button>
+          </div>
+          <div>
+            <button class="showcardSide_btn">Showcard Side</button>
+          </div>
+        </div>
+      </div>
     </div>
     <script>
       let socket = io();
