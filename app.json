@@ -1,6 +1,6 @@
 {
-  "name": "Node.js Socket.io Example",
-  "description": "Part of the Using WebSockets on Heroku Tutorial",
-  "repository": "https://github.com/heroku-examples/node-socket.io",
+  "name": "showcard with socketIo",
+  "description": "Application for marketh showcard",
+  "repository": "https://github.com/euphony-io/wave-show-card.git",
   "keywords": ["node", "websocket", "socket.io"]
 }
