@@ -1,17 +1,89 @@
 <html>
   <head>
+    <link rel="stylesheet" , href="https://unpkg.com/mvp.css" />
     <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <p id="server-time"></p>
+    <div id="customerSide">
+      <form id="customerTransmitter">
+        <input
+          class="customerTransmitter_name"
+          type="text"
+          placeholder="Type product name"
+          required
+        />
+        <input
+          class="customerTransmitter_price"
+          type="number"
+          placeholder="Type product price"
+          required
+        />
+        <button>발신하기</button>
+      </form>
+    </div>
+    <div id="showcardSide">showcard</div>
+    <div id="btnContainer">
+      <button class="customerSide_btn">Customer Side</button>
+      <button class="showcardSide_btn">Showcard Side</button>
+    </div>
     <script>
       let socket = io();
       let el;
 
-      socket.on('time', (timeString) => {
-        el = document.getElementById('server-time');
-        el.innerHTML = 'Server time: ' + timeString;
+      const customerTransmitter = document.querySelector(
+        "#customerTransmitter"
+      );
+      const customerSide = document.getElementById("customerSide");
+      const showcardSide = document.getElementById("showcardSide");
+      const btnContainer = document.getElementById("btnContainer");
+      const customerBtn = document.querySelector(".customerSide_btn");
+      const showcardBtn = document.querySelector(".showcardSide_btn");
+
+      function openPage(event) {
+        const currentPage = event.target.innerText;
+        if (currentPage === "Customer Side") {
+          customerSide.hidden = false;
+          btnContainer.hidden = true;
+        } else if (currentPage === "Showcard Side") {
+          showcardSide.hidden = false;
+          btnContainer.hidden = true;
+        }
+      }
+
+      function handleSubmit(event) {
+        event.preventDefault();
+        const name = customerTransmitter.querySelector(
+          ".customerTransmitter_name"
+        );
+        const price = customerTransmitter.querySelector(
+          ".customerTransmitter_price"
+        );
+        socket.emit("setData", { name: name.value, price: price.value });
+        name.value = "";
+        price.value = "";
+      }
+
+      customerBtn.addEventListener("click", openPage);
+      showcardBtn.addEventListener("click", openPage);
+      customerTransmitter.addEventListener("submit", handleSubmit);
+
+      socket.addEventListener("open", () => console.log("open"));
+      socket.addEventListener("close", () => {
+        console.log("Disconnected from Server ❌");
       });
+
+      socket.on("time", (timeString) => {
+        el = document.getElementById("server-time");
+        el.innerHTML = "Server time: " + timeString;
+      });
+
+      socket.on("setShowCardData", (setData) => {
+        console.log(setData);
+      });
+
+      customerSide.hidden = true;
+      showcardSide.hidden = true;
     </script>
-  </head>
-  <body>
-    <p id="server-time"></p>
   </body>
 </html>
