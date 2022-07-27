@@ -9,20 +9,20 @@
       var price = "9900";
       var name = "MANGO";
 
+      document.getElementById("price").value = price;
+      document.getElementById("name").value = name;
+
       var content = price + " " + name;
-      document.getElementById("wave_btn").value = content;
 
       window.generateSoundData = function () {
           if (btnSwt) {
               euphy.stop();
-              document.getElementById("wave_btn").value = content;
               btnSwt = false;
               console.log("STOP!");
           }
           else {
               euphy.setCode(content);
               euphy.play();
-              document.getElementById("wave_btn").value = content;
               btnSwt = true;
               console.log("PLAY!");
           }
@@ -124,18 +124,28 @@
       <div id="showcardSide">
         <center>
           <h1 class="title"> wave-show-card project </h1>
-          <p>
-              <input 
+              <button
                 id='wave_btn' 
                 class='wave_btn' 
                 type='button' 
                 style="
                 width: 1050px;
                 height: 395px;
-                background: #FFFFFF;
               "
-                onclick='generateSoundData()' />
-          </p>
+                onclick='generateSoundData()' 
+              >
+                <div
+                  id="price"
+                  class="price"
+                >
+                price
+                </div>
+                <div
+                  id="name"
+                  class="name">
+                name
+                </div>
+              </button>
           <div class='desc'>
               <strong>시각 장애인을 위한 음파 송신 웹 쇼카드입니다. 음파 수신 앱으로 웹 쇼카드의 내용을 수신하고 내용을 들을 수 있습니다.</strong><br />
           </div>
