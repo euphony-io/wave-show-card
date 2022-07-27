@@ -22,6 +22,9 @@ import org.w3c.dom.Text;
 import euphony.lib.receiver.AcousticSensor;
 import euphony.lib.receiver.EuRxManager;
 
+import android.speech.tts.TextToSpeech;
+import java.util.Locale;
+import static android.speech.tts.TextToSpeech.ERROR;
 
 
 
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private View MainView;
     private TextView listenView;
     private TextView listenView2;
+    private TextToSpeech tts;
 
     EuRxManager mRxManager = new EuRxManager();
 
@@ -45,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
         listenView = findViewById(R.id.listenView);
         listenView2 = findViewById(R.id.listenView2);
         mContext = this;
+
+        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status !=ERROR) {
+                    // 언어를 선택한다.
+                    tts.setLanguage(Locale.ENGLISH);
+                }
+            }
+        });
 
 
         int permission = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.RECORD_AUDIO);
@@ -59,8 +73,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void notify(String letters) {
                 listenView.setText(letters);
-
+                mRxManager.finish();
+                listenView2.setText("멈춤");
+                tts.speak(listenView.getText().toString(),TextToSpeech.QUEUE_FLUSH, null);
                 mode = false;
+
+
             }
         });
 
