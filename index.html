@@ -7,24 +7,28 @@
       var btnSwt = false;
 
       window.generateSoundData = function () {
-        if (btnSwt) {
-          euphy.stop();
-          document.getElementById("euphy_btn").value = "broadcast";
-          btnSwt = false;
-          console.log("STOP!");
-        } else {
-          var code = document.getElementById("euphy_text");
-          euphy.setCode(code.value);
-          euphy.play();
-          document.getElementById("euphy_btn").value = "stop";
-          btnSwt = true;
-          console.log("PLAY!");
-        }
-      };
+          if (btnSwt) {
+              euphy.stop();
+              btnSwt = false;
+              console.log("STOP!");
+          }
+          else {
+              var name = document.getElementById("name").innerHTML
+              var price = document.getElementById("price").innerHTML
+              var content = price + " " + name;
+
+              euphy.setCode(content);
+              console.log(content);
+
+              euphy.play();
+              btnSwt = true;
+              console.log("PLAY!");
+          }
+      }
 
       let desc = window.document.getElementById("desc");
       if (!euphy.isAudioWorkletAvailable) {
-        desc.innerHTML += "AudioWorklet is not supported.<br/>";
+          desc.innerHTML += "AudioWorklet is not supported.<br/>";
       }
     </script>
     <script src="/socket.io/socket.io.js"></script>
@@ -117,23 +121,30 @@
       </div>
       <div id="showcardSide">
         <center>
-          <h1>Hi, this is the Euphony's ES6 demo project.</h1>
-          <p>
-            <input
-              id="euphy_text"
-              class="demo_text_edit"
-              type="text"
-              value="hello, euphony"
-            />
-            <input
-              id="euphy_btn"
-              class="demo_btn"
-              type="button"
-              value="broadcast"
-              onclick="generateSoundData()"
-            />
-          </p>
-          <div id="desc"><strong>Description</strong><br /></div>
+          <h1 class="title"> wave-show-card project </h1>
+              <button
+                id='wave_btn' 
+                class='wave_btn' 
+                type='button' 
+                style="
+                width: 1050px;
+                height: 395px;
+              "
+                onclick='generateSoundData()' 
+              >
+                <div
+                  id="price"
+                  class="price"
+                >
+                </div>
+                <div
+                  id="name"
+                  class="name">
+                </div>
+              </button>
+          <div class='desc'>
+              <strong>시각 장애인을 위한 음파 송신 웹 쇼카드입니다. 음파 수신 앱으로 웹 쇼카드의 내용을 수신하고 내용을 들을 수 있습니다.</strong><br />
+          </div>
         </center>
       </div>
       <div id="btnContainer">
@@ -207,8 +218,6 @@
       const customerBtn = document.querySelector(".customerSide_btn");
       const showcardBtn = document.querySelector(".showcardSide_btn");
 
-      const euphonyInput = document.querySelector("#euphy_text");
-
       function openPage(event) {
         const currentPage = event.target.innerText;
         if (currentPage === "점원용") {
@@ -253,7 +262,8 @@
       });
 
       socket.on("setShowCardData", (setData) => {
-        euphonyInput.value = setData.name;
+        document.getElementById("name").innerHTML = setData.name;
+        document.getElementById("price").innerHTML = setData.price;
       });
 
       customerSide.hidden = true;
