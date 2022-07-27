@@ -30,134 +30,166 @@
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
-    <p id="server-time"></p>
-    <div
-      id="customerSide"
-      style="
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      "
-    >
-      <div
-        style="
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 800px;
-          height: 400px;
-        "
-      >
-        <form
-          id="customerTransmitter"
+    <div style="height: 100vh">
+      <p id="server-time"></p>
+      <div style="display: flex; align-items: center; margin: 30px 0 0 30px">
+        <div style="font-size: 30px">연결상태</div>
+        <div
+          id="connectionCondition"
           style="
-            display: flex;
-            flex-direction: column;
+            border-radius: 100px;
+            background: red;
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+          "
+        ></div>
+      </div>
+      <div id="customerSide">
+        <div
+          style="
             width: 100%;
-            height: 600px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           "
         >
-          <div style="font-size: 50px">제품명</div>
-          <div style="height: 150px">
-            <input
-              class="customerTransmitter_name"
-              type="text"
-              placeholder="Type product name"
-              style="width: 100%; height: 150px; font-size: 60px"
-              required
-            />
-          </div>
-          <div style="font-size: 50px">제품 가격</div>
           <div
-            style="display: flex; position: relative; width: 100%; height: 100%"
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 800px;
+              height: 400px;
+            "
           >
-            <input
-              class="customerTransmitter_price"
-              type="number"
-              placeholder="Type product price"
-              style="width: 100%; height: 150px; font-size: 60px"
-              required
-            />
-            <div
+            <form
+              id="customerTransmitter"
               style="
-                position: absolute;
-                color: black;
-                right: 10px;
-                font-size: 600%;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 600px;
               "
             >
-              원
-            </div>
+              <div style="font-size: 50px">제품명</div>
+              <div style="height: 150px">
+                <input
+                  class="customerTransmitter_name"
+                  type="text"
+                  placeholder="Type product name"
+                  style="width: 100%; height: 150px; font-size: 60px"
+                  required
+                />
+              </div>
+              <div style="font-size: 50px">제품 가격</div>
+              <div
+                style="
+                  display: flex;
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                <input
+                  class="customerTransmitter_price"
+                  type="number"
+                  placeholder="Type product price"
+                  style="width: 100%; height: 150px; font-size: 60px"
+                  required
+                />
+                <div
+                  style="
+                    position: absolute;
+                    color: black;
+                    right: 10px;
+                    font-size: 600%;
+                  "
+                >
+                  원
+                </div>
+              </div>
+              <button style="font-size: 70px; color: #f9f9f9">발신하기</button>
+            </form>
           </div>
-          <button style="font-size: 70px; color: #f9f9f9">발신하기</button>
-        </form>
+        </div>
       </div>
-    </div>
-    <div id="showcardSide">
-      <center>
-        <h1>Hi, this is the Euphony's ES6 demo project.</h1>
-        <p>
-          <input
-            id="euphy_text"
-            class="demo_text_edit"
-            type="text"
-            value="hello, euphony"
-          />
-          <input
-            id="euphy_btn"
-            class="demo_btn"
-            type="button"
-            value="broadcast"
-            onclick="generateSoundData()"
-          />
-        </p>
-        <div id="desc"><strong>Description</strong><br /></div>
-      </center>
-    </div>
-    <div id="btnContainer">
-      <div
-        style="
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        "
-      >
-        <div>
-          <div style="display: flex; justify-content: center; font-size: 100px">
-            <div>Euterpe Mart</div>
-          </div>
-          <div style="width: 800px; height: 150px; margin-top: 130%">
-            <button
-              class="customerSide_btn"
-              style="
-                width: 100%;
-                height: 100%;
-                border-radius: 10px;
-                font-size: 50px;
-                color: #f9f9f9;
-              "
+      <div id="showcardSide">
+        <center>
+          <h1>Hi, this is the Euphony's ES6 demo project.</h1>
+          <p>
+            <input
+              id="euphy_text"
+              class="demo_text_edit"
+              type="text"
+              value="hello, euphony"
+            />
+            <input
+              id="euphy_btn"
+              class="demo_btn"
+              type="button"
+              value="broadcast"
+              onclick="generateSoundData()"
+            />
+          </p>
+          <div id="desc"><strong>Description</strong><br /></div>
+        </center>
+      </div>
+      <div id="btnContainer">
+        <div
+          style="
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div
+            style="
+              height: 100%;
+              display: flex;
+              justify-content: space-around;
+              flex-direction: column;
+            "
+          >
+            <div
+              style="display: flex; justify-content: center; font-size: 100px"
             >
-              점원용
-            </button>
-          </div>
-          <div style="width: 800px; height: 150px">
-            <button
-              class="showcardSide_btn"
-              style="
-                width: 100%;
-                height: 100%;
-                border-radius: 10px;
-                font-size: 50px;
-                margin-top: 60px;
-                color: #f9f9f9;
-              "
-            >
-              쇼카드
-            </button>
+              <div style="height: 100%">Euterpe Mart</div>
+            </div>
+            <div>
+              <div style="width: 800px; height: 150px">
+                <button
+                  class="customerSide_btn"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    font-size: 50px;
+                    color: #f9f9f9;
+                  "
+                >
+                  점원용
+                </button>
+              </div>
+              <div style="width: 800px; height: 150px">
+                <button
+                  class="showcardSide_btn"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    font-size: 50px;
+                    margin-top: 60px;
+                    color: #f9f9f9;
+                  "
+                >
+                  쇼카드
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -208,19 +240,23 @@
       socket.addEventListener("open", () => console.log("open"));
       socket.addEventListener("close", () => {
         console.log("Disconnected from Server ❌");
+        el = document.getElementById("connectionCondition");
+        el.style.background = "none";
       });
 
-      socket.on("time", (timeString) => {
-        el = document.getElementById("server-time");
-        el.innerHTML = "Server time: " + timeString;
+      socket.on("condition", (timeString) => {
+        el = document.getElementById("connectionCondition");
+        el.style.background = "#60ff3d";
+        setTimeout(() => {
+          el.style.background = "none";
+        }, 1000);
       });
 
       socket.on("setShowCardData", (setData) => {
         euphonyInput.value = setData.name;
       });
 
-      customerSide.hidden = false;
-      btnContainer.hidden = true;
+      customerSide.hidden = true;
       showcardSide.hidden = true;
     </script>
   </body>
