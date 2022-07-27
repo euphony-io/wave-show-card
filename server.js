@@ -28,4 +28,4 @@ io.on('connection', (socket) => {
 
 // 소켓이 잘 작동하는지 확인하기 위한 시간
 // 최종 완성시 삭제할것
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+setInterval(() => io.emit('condition', 1), 2000);
