@@ -6,14 +6,6 @@
       var euphy = new Euphony();
       var btnSwt = false;
 
-      var price = "9900";
-      var name = "MANGO";
-
-      document.getElementById("price").innerHTML = price;
-      document.getElementById("name").innerHTML = name;
-
-      var content = price + " " + name;
-
       window.generateSoundData = function () {
           if (btnSwt) {
               euphy.stop();
@@ -21,7 +13,13 @@
               console.log("STOP!");
           }
           else {
+              var name = document.getElementById("name").innerHTML
+              var price = document.getElementById("price").innerHTML
+              var content = price + " " + name;
+
               euphy.setCode(content);
+              console.log(content);
+
               euphy.play();
               btnSwt = true;
               console.log("PLAY!");
@@ -220,8 +218,6 @@
       const customerBtn = document.querySelector(".customerSide_btn");
       const showcardBtn = document.querySelector(".showcardSide_btn");
 
-      const euphonyInput = document.querySelector("#euphy_text");
-
       function openPage(event) {
         const currentPage = event.target.innerText;
         if (currentPage === "점원용") {
@@ -266,7 +262,8 @@
       });
 
       socket.on("setShowCardData", (setData) => {
-        euphonyInput.value = setData.name;
+        document.getElementById("name").innerHTML = setData.name;
+        document.getElementById("price").innerHTML = setData.price;
       });
 
       customerSide.hidden = true;
