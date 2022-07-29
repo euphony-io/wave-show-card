@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -26,34 +27,20 @@ import androidx.core.content.ContextCompat.checkSelfPermission
 import com.euphony.waveshowcardreceiver.ui.theme.WaveShowCardReceiverTheme
 import euphony.lib.receiver.AcousticSensor
 import euphony.lib.receiver.EuRxManager
+import kotlin.math.log
 
 class MainActivity : ComponentActivity() {
 
     companion object { const val PERMISSION_REQUEST_CODE = 17389 }
     private var isListening = false
-    private fun requestPermissions(): Boolean {
-        if (checkSelfPermission(Manifest.permission.RECORD_AUDIO)
-            == PackageManager.PERMISSION_GRANTED
-            && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            == PackageManager.PERMISSION_GRANTED
-        ) {
-            return true
-        }
-        val permissions: Array<String> = arrayOf(
-            Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE
-        )
-
-        ActivityCompat.requestPermissions(this, permissions, 0)
-        return false
-
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestPermissions()
 
+        if(checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED)
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO,
+                                                        Manifest.permission.WRITE_EXTERNAL_STORAGE), PERMISSION_REQUEST_CODE)
 
         setContent {
             WaveShowCardReceiverTheme {
@@ -70,11 +57,22 @@ class MainActivity : ComponentActivity() {
 
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if(requestCode==PERMISSION_REQUEST_CODE && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+
+        }
+    }
+
 }
 @Composable
 fun Box1(){
-    var text by remember { mutableStateOf("화면을 터치하세요")  }
-    var text2 by remember { mutableStateOf("hello,euphony!") }
+    var text  = remember { mutableStateOf("화면을 터치하세요")  }
+    var text2 = remember { mutableStateOf("hello,euphony!") }
 
     Box{
         Modifier.pointerInput(Unit) {
@@ -86,14 +84,14 @@ fun Box1(){
             )
         }
         Text(
-            text, modifier = Modifier
+            text.value, modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 350.dp), textAlign = TextAlign.Center)
         Surface(
             modifier = Modifier
                 .fillMaxHeight()
                 .clickable {
-                    text = "음파신호를 수신 중 입니다... "
+                    text.value = "음파신호를 수신 중 입니다... "
 
                 }
                 .padding(all = 300.dp),
@@ -101,7 +99,7 @@ fun Box1(){
 
         }
 
-        Text(text2,
+        Text(text2.value,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 400.dp),
