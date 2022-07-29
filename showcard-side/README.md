@@ -24,5 +24,5 @@
 ### 실행 결과
 <div align="center">
 <img width="406" alt="img1" src="https://user-images.githubusercontent.com/60066586/181808821-577a8435-d157-4046-a839-501cb3c5c768.png"><img width="406" alt="img2" src="https://user-images.githubusercontent.com/60066586/181808996-05da5c9b-e655-4eab-907d-aaf9b7c9df7c.png">
+<img width="800" alt="img3" src="https://user-images.githubusercontent.com/60066586/181816645-ec2411bf-ccc2-47fb-8a91-358ba99a4717.png">
 </div>
-<img width="998" alt="img3ㅑ" src="https://user-images.githubusercontent.com/60066586/181816645-ec2411bf-ccc2-47fb-8a91-358ba99a4717.png">
