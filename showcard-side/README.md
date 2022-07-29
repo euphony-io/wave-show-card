@@ -1,11 +1,24 @@
-## WEB
+### 담당
+
+[@Han-D-Peter](https://github.com/Han-D-Peter) 
+[@defwdahyun](https://github.com/defwdahyun0)
+--
+
 ### 역할
-[@Han-D-Peter](https://github.com/Han-D-Peter) : 웹 소켓 전송 구현
+
+[@Han-D-Peter](https://github.com/Han-D-Peter) : 웹 소켓 구현
 
 [@defwdahyun](https://github.com/defwdahyun0) : 웹 쇼카드 구현
-### 설명
-시각 장애인을 위한 웹 쇼카드입니다.
+  
+---
 
-점원용 : 웹 소켓으로 쇼카드에 정보를 보냅니다.
+### 작동 방식
 
-쇼카드 : 쇼카드 화면을 보여줍니다. 웹소켓으로부터 정보를 전달 받아 쇼카드 화면으로 보여주고, Euphony 음파를 송신합니다. 이후 수신 앱으로 웹 쇼카드의 내용을 수신하고 내용을 들을 수 있습니다. 수신 앱은 cunsumer-side 폴더에서 확인할 수 있습니다.
+1. 웹 쇼카드를 터치하면 상품명, 가격 정보를 음파신호로 송신한다.
+2. 점원은 점원용 웹을 이용해 웹 쇼카드의 내용을 등록하고 수정할 수 있다.
+
+(+) 이후 앱에서 음파신호를 수신한 후 상품명, 가격정보를 음성으로 들려준다. 
+
+--- 
+### 실행 결과
+ <img width="406" alt="img1" src="https://user-images.githubusercontent.com/60066586/181808821-577a8435-d157-4046-a839-501cb3c5c768.png"><img width="406" alt="스크린샷 2022-07-30 오전 2 03 10" src="https://user-images.githubusercontent.com/60066586/181808996-05da5c9b-e655-4eab-907d-aaf9b7c9df7c.png">
