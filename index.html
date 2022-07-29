@@ -122,26 +122,48 @@
       <div id="showcardSide">
         <center>
           <h1 class="title"> wave-show-card project </h1>
-              <button
-                id='wave_btn' 
-                class='wave_btn' 
-                type='button' 
+            <button
+              id='wave_btn' 
+              class='wave_btn' 
+              type='button' 
+              style="
+              width: 1050px;
+              height: 395px;
+              background-color: white;
+            "
+              onclick='generateSoundData()' 
+            >
+              <div
+                id="name"
+                class="name"
                 style="
-                width: 1050px;
-                height: 395px;
+                margin: 0 0 0 0;
+                width: 980px; 
+                height: 150px; 
+                font-size: 100px;
+                background-color: #87CEFA;
+                color: black;
+                text-align: left;
               "
-                onclick='generateSoundData()' 
               >
-                <div
-                  id="price"
-                  class="price"
-                >
-                </div>
-                <div
-                  id="name"
-                  class="name">
-                </div>
-              </button>
+              상품명
+              </div>
+              <div
+                id="price"
+                class="price"
+                style="
+                margin: 0 0 0 0;
+                width: 980px; 
+                height: 200px; 
+                font-size: 125px;
+                background-color:#F0F8FF;
+                color: black;
+                text-align: right;
+              "
+              >
+              가격
+              </div>
+            </button>
           <div class='desc'>
               <strong>시각 장애인을 위한 음파 송신 웹 쇼카드입니다. 음파 수신 앱으로 웹 쇼카드의 내용을 수신하고 내용을 들을 수 있습니다.</strong><br />
           </div>
