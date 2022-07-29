@@ -12,12 +12,12 @@ Wave-Show-Card helps visually impaired people listen to the show card. 🛒
 
 Deploy : [https://wafevafssef.herokuapp.com/](https://wafevafssef.herokuapp.com/)
 
-Directory : customer-socket-transmitter
+Directory : showcard-side
 
 Explanation(KOR) : [README.md](https://github.com/euphony-io/wave-show-card/blob/main/showcard-side/README.md)
 
 ```shell
-cd customer-socket-transmitter
+cd showcard-side
 npm install
 npm run start
 ```
