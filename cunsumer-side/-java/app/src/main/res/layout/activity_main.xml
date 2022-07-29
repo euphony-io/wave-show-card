@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
     <TextView
         android:id="@+id/listenView"
+        android:textSize="28sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/status_text"
@@ -16,14 +17,15 @@
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/listenView2"
+        android:textSize="28sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Input value"
+        android:text="화면을 터치하세요"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="80dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
