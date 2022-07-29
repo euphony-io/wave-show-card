@@ -1,4 +1,4 @@
-
+/build
 
 .DS_Store
 /captures
@@ -56,12 +56,6 @@ gen-external-apklibs
 
 # NDK
 obj/
-
-# User-specific configurations
-.idea/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
 
 ### AndroidStudio Patch ###
 
