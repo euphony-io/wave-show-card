@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: euphony.lib:euphony:0.7.1.6@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/a528bd6e7293652bd1a2134bc11be6f2/transformed/euphony-0.7.1.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a528bd6e7293652bd1a2134bc11be6f2/transformed/euphony-0.7.1.6/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/a528bd6e7293652bd1a2134bc11be6f2/transformed/euphony-0.7.1.6/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/euphony.lib/euphony/0.7.1.6/5bf84109aecd3021aa95afed25453135e8950ebd/euphony-0.7.1.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/euphony.lib/euphony/0.7.1.6/4a2036126ab70ad8db3505b73eda00aa73a78d51/euphony-0.7.1.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
