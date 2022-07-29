@@ -1,6 +1,0 @@
-{
-  "name": "showcard with socketIo",
-  "description": "Application for marketh showcard",
-  "repository": "https://github.com/euphony-io/wave-show-card.git",
-  "keywords": ["node", "websocket", "socket.io"]
-}
