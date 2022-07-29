@@ -1,6 +1,6 @@
 # wave-show-card
 
-Wave-Show-Card helps blind people hear the show card. 🎶
+Wave-Show-Card helps visually impaired people listen to the show card. 🛒
 
 ## Team Link 🎶
 
