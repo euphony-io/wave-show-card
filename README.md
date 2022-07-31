@@ -10,11 +10,11 @@ Wave-Show-Card helps visually impaired people listen to the show card. 🛒
 
 ### Web
 
-Deploy : [https://wafevafssef.herokuapp.com/](https://wafevafssef.herokuapp.com/)
+Explanation(KOR) : [README.md](https://github.com/euphony-io/wave-show-card/blob/main/showcard-side/README.md)
 
 Directory : showcard-side
 
-Explanation(KOR) : [README.md](https://github.com/euphony-io/wave-show-card/blob/main/showcard-side/README.md)
+Deploy : [https://wafevafssef.herokuapp.com/](https://wafevafssef.herokuapp.com/)
 
 ```shell
 cd showcard-side
@@ -24,11 +24,11 @@ npm run start
 
 ### Android
 
+Explanation(KOR) : [README.md](https://github.com/euphony-io/wave-show-card/blob/main/cunsumer-side/README.md)
+
 Directory : cunsumer-side
 
 Meaning of directory name : Cunsumer is a newly coined term created by Euterpe team. It is a combination of customer, which means a person who buys goods in a shop, and consumer, which means a person who uses wave-show-card service.
-
-Explanation(KOR) : [README.md](https://github.com/euphony-io/wave-show-card/blob/main/cunsumer-side/README.md)
 
 ```shell
 cd cunsumer-side/-java/release
